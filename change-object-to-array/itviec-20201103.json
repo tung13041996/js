@@ -1,0 +1,497 @@
+{
+  "overall": {
+    "rating_overall": 4.1,
+    "recommended_working_score": 90,
+    "rating_items": [
+      {
+        "key": "Overall",
+        "val": 4.1
+      },
+      {
+        "key": "Salary & benefits",
+        "val": 4.1
+      },
+      {
+        "key": "Training & learning",
+        "val": 3.7
+      },
+      {
+        "key": "Management cares about me",
+        "val": 3.6
+      },
+      {
+        "key": "Culture & fun",
+        "val": 4
+      },
+      {
+        "key": "Office & workspace",
+        "val": 4
+      }
+    ]
+  },
+  "reviewItems": [
+    {
+      "title": "Công ty của Mỹ môi trương tốt, lương hấp dẫn.",
+      "date": "July 2020",
+      "whatYouLike": "Văn phòng đẹp, trẻ chung.  Được cấp Mac và các thiết bị liên quan\nRất ít khi phải OT. Khi OT có lương xứng đáng. Cảm thấy hài lòng.",
+      "feedback": "Career path không rõ ràng. Cần có career path rõ ràng cho sự phát triển nghề nghiệp của nhân viên.",
+      "rating": 5,
+      "ratingDetail": {
+        "Salary & benefits": 5,
+        "Training & learning": 4,
+        "Management cares about me": 4,
+        "Culture & fun": 4,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Môi trường làm việc tốt",
+      "date": "June 2020",
+      "whatYouLike": "Được cấp Macbook, thời gian thoải mái. Sếp hoà đồng vui vẽ. Nhiều hoạt động ngoài giờ\nLương thưởng đầy đủ, không ép buộc OT, OT chỉ khi chuẩn bị ra sản phẩm mới.",
+      "feedback": "",
+      "rating": 4,
+      "ratingDetail": {
+        "Salary & benefits": 5,
+        "Training & learning": 4,
+        "Management cares about me": 5,
+        "Culture & fun": 4,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Môi trường tuyệt vời",
+      "date": "June 2020",
+      "whatYouLike": "Bãi đậu xe chung với toàn nhà, rộng rãi, free. Cấp macbook, device (phone) để làm việc. Có nhà ăn rộng rãi với đủ các loại snack.\nRất ít khi OT nhưng nếu OT thì công ty pay fair với mức 200% nếu vào cuối tuần.",
+      "feedback": "",
+      "rating": 5,
+      "ratingDetail": {
+        "Salary & benefits": 5,
+        "Training & learning": 5,
+        "Management cares about me": 5,
+        "Culture & fun": 5,
+        "Office & workspace": 5
+      }
+    },
+    {
+      "title": "Môi trường làm việc vui vẻ, thân thiện.",
+      "date": "April 2020",
+      "whatYouLike": "Bãi giữ xe rộng rãi.\nCó hỗ trợ tập gym\nCấp Macbook cho nhân viên.\n\nĐược trả lương đầy đủ, 150% tới 210%, tùy theo khung giờ.",
+      "feedback": "Công việc khá đặc thù.\nĐồ ăn nhiều nhưng toàn junk food",
+      "rating": 4,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 4,
+        "Management cares about me": 5,
+        "Culture & fun": 4,
+        "Office & workspace": 5
+      }
+    },
+    {
+      "title": "Chế độ đãi ngộ tốt",
+      "date": "March 2020",
+      "whatYouLike": "Tất cả đều được trang bị laptop, quan tâm sức khỏe nhân viên. Mọi người thân thiện hóa đồng, có thể học hỏi nhiều.\nNếu OT thì được nhân 2 lương, mà mình đang học việc chưa có cơ hội OT",
+      "feedback": "Chưa biết nữa, mình làm ở đây chưa lâu nhưng hiện tại mình thấy khá ổn",
+      "rating": 5,
+      "ratingDetail": {
+        "Salary & benefits": 5,
+        "Training & learning": 5,
+        "Management cares about me": 5,
+        "Culture & fun": 5,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Công ty có môi trường làm việc tốt, lương thưởng cũng khá hơn so với mức chung",
+      "date": "February 2020",
+      "whatYouLike": "Công ty có giờ giấc làm việc thoải mái và có thể làm việc ở nhà nếu có việc bận\nSếp team mình hòa đồng với các team member nên mình cảm thấy gần gũi và gắn bó\nĐược trả lương theo giờ nếu phải OT, khi OT thì submit trên hệ thống đợi Sếp duyệt",
+      "feedback": "Được cấp Macbook nhưng toàn là Macbook đời 2015 nếu chạy nhiều tab hay cần xử lý nhiều thì hơi chậm. Văn phòng ở trong tòa nhà hơi cũ.",
+      "rating": 4,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 3,
+        "Management cares about me": 4,
+        "Culture & fun": 5,
+        "Office & workspace": 3
+      }
+    },
+    {
+      "title": "Văn hoá thoải mái, chế độ rất tốt",
+      "date": "February 2020",
+      "whatYouLike": "Sếp tốt, vui tính và quan tâm nhân viên, Team rất nhiều người giỏi và dễ gần, làm việc như anh em với nhau. Có căn tin tha hồ ăn uống, có hỗ trợ ăn tối và trưa, có chế độ work from home nhàn nhã, đi sớm trễ tuỳ ý miễn có lý do, task làm không bị áp lực, giãn thời gian ra mà làm. MacBook mới nhất, iPhone 11. \nĐi du lịch thả ga với team (team có nhiều hoạt động rất chi là vui).\nCompany không có gì chê, đi lần nào là nhớ lần đó.\nCác team khác luôn nở nụ cười khi thấy bạn.\nDự án sản phẩm rất thú vị.\nTeam chia sẻ nhau đủ chuyện về cuộc sống không chỉ technical.\nTrả 200 phần trăm và OT tự nguyện, OT thực lòng mà nói anh em rất mong vì làm thoải mái mà được hưởng 200 %",
+      "feedback": "Chỗ gửi xe có mấy lần gửi gần bãi rác hôi quá.\nBảo viết cho đủ 50 ký tự cho đủ chứ cũng không thấy gì để chê thêm",
+      "rating": 5,
+      "ratingDetail": {
+        "Salary & benefits": 5,
+        "Training & learning": 5,
+        "Management cares about me": 5,
+        "Culture & fun": 5,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Môi trường thân thiện, nhiều người trẻ, nhiệt huyết và tài năng",
+      "date": "October 2019",
+      "whatYouLike": "Tất cả các dịch vụ đi kèm đều cùng toà nhà (ăn trưa lầu 2 (tên nhà hàng rất lãng mạn- Honey Moon), Gym ở lầu 3, xung quanh cũng có nhiều quán ngon.\nCông ty có nhiều kỹ sư trẻ, tài năng, hết mình trong công việc lẫn...ăn chơi\nVăn hoá công ty mạnh, nhiều ý tưởng trong gắn kết nhân viên\nCó sự tiến bộ trong chi trả làm thêm ngoài giờ. Anh em được quan tâm khi làm ngoài giờ cho các dự án",
+      "feedback": "Chưa thúc đẩy được một môi trường R&D đúng nghĩa, khuyến khích và thúc đẩy sáng tạo trong thiết kế sản phẩm.",
+      "rating": 4,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 3,
+        "Management cares about me": 3,
+        "Culture & fun": 5,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Môi trường tốt",
+      "date": "June 2019",
+      "whatYouLike": "Được trang bị Macbook, Phúc lợi đầy đủ\nMôi trường thân thiện học hỏi, đầu vào cao\nKhông OT. Nhưng mình thường xuyên ở lại công ty vì như ở nhà. Mọi thứ ok",
+      "feedback": "Không có. Intern có chương trình training rất tốt. Phù hợp người mới",
+      "rating": 5,
+      "ratingDetail": {
+        "Salary & benefits": 5,
+        "Training & learning": 5,
+        "Management cares about me": 5,
+        "Culture & fun": 4,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Công ty tốt cho các bạn Mid-level trở lên để phát triển",
+      "date": "June 2019",
+      "whatYouLike": "Có phụ cấp ăn trưa, môi trường làm việc năng động và trẻ. \nPhụ cấp và chế độ tốt về ăn uống và lương OT. Không bắt buộc",
+      "feedback": "",
+      "rating": 4,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 4,
+        "Management cares about me": 4,
+        "Culture & fun": 4,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Sếp rất nice, đang build văn hoá tốt.",
+      "date": "April 2019",
+      "whatYouLike": "Build văn hoá tốt. Sếp nice, cố gắng thầm lặng nhưng luôn được sếp để ý và ghi nhận. Sau ghi nhận là tăng benefit luôn.\nKhông có OT nên cảm thấy rất thoải máy đánh thêm cho đủ 50 từ",
+      "feedback": "Công tác tuyển người chưa sàng lọc thật kĩ có thể làm hư văn hoá.\nMột số ông to chưa thể hiện trách nhiệm đúng đắn với product, chưa thật coi product là đứa con, không phản hồi những chỗ yếu của sản phẩm cho team Mỹ biết. Hoặc ko chú ý đến những điểm sản phẩm còn yếu",
+      "rating": 4,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 4,
+        "Management cares about me": 5,
+        "Culture & fun": 5,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Môi trường làm việc tốt",
+      "date": "December 2018",
+      "whatYouLike": "Môi trường làm việc thoải mái, được sử dụng các công nghệ mới, học hỏi được nhiều từ mọi người. Chế độ phúc lơi tốt. Được ăn trưa và tập gym miễn phí,\nCó đồ ăn cho nhân viên ở lại OT. GIờ giấc thoải mái.",
+      "feedback": "",
+      "rating": 5,
+      "ratingDetail": {
+        "Salary & benefits": 5,
+        "Training & learning": 5,
+        "Management cares about me": 5,
+        "Culture & fun": 5,
+        "Office & workspace": 5
+      }
+    },
+    {
+      "title": "Đội ngũ nhân viên trẻ, tài năng, benefit tốt",
+      "date": "May 2018",
+      "whatYouLike": "Đội ngũ nhân viên trẻ, tài năng, benefit tốt, nhân viên đều được cấp macbook, tập gym, healthcare, ăn trưa\nOT được",
+      "feedback": "Các project quản lý chưa thật sự tốt, quy trình làm việc rườm rà, chưa thống nhất và cụ thể.",
+      "rating": 4,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 3,
+        "Management cares about me": 3,
+        "Culture & fun": 3,
+        "Office & workspace": 3
+      }
+    },
+    {
+      "title": "Công ty phát triển nhanh, có nhiều cơ hội thử sức ở nhiều vị trí",
+      "date": "May 2018",
+      "whatYouLike": "Đội ngũ trẻ, đoàn kết, vui vẻ nhiệt tình, công ty phát triển nhanh, có nhiều cơ hội học tập kỹ năng mềm, chuyên môn, tiếng nhật",
+      "feedback": "Sếp chưa khuyến khích mọi người đóng góp ý kiến và chưa có kênh thu thập, xử lý tốt ý kiến nhân viên",
+      "rating": 4,
+      "ratingDetail": {
+        "Salary & benefits": 3,
+        "Training & learning": 4,
+        "Management cares about me": 4,
+        "Culture & fun": 3,
+        "Office & workspace": 3
+      }
+    },
+    {
+      "title": "Công ty năng động!",
+      "date": "May 2018",
+      "whatYouLike": "Môi trường làm việc trẻ trung, năng động.\nĐược onsite US nhiều cơ hội học hỏi.\nÍt khi OT, và trả tiền rõ ràng nếu có làm thêm giờ.",
+      "feedback": "Mình hài lòng với Misfit. Hiện tại cũng không có gì phàn nàn!",
+      "rating": 4,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 4,
+        "Management cares about me": 4,
+        "Culture & fun": 4,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Môi trường tốt, benefit tuyệt vời",
+      "date": "April 2018",
+      "whatYouLike": "Gần quận 1, môi trường cực thoải mái, tiện nghi, học hỏi rất nhiều về technical và anh văn\nOt rất ít, nếu có thì sẽ được chi 200%, nếu biết sắp xếp thời gian thì ko cần OT",
+      "feedback": "Dự án giai đoạn cuối chạy hơi nhanh, nên chỉnh plan để sản phẩm dc hoàn chỉnh tốt hơn",
+      "rating": 5,
+      "ratingDetail": {
+        "Salary & benefits": 5,
+        "Training & learning": 5,
+        "Management cares about me": 4,
+        "Culture & fun": 4,
+        "Office & workspace": 5
+      }
+    },
+    {
+      "title": "Benefit tuyệt vời",
+      "date": "April 2018",
+      "whatYouLike": "Hàng apple và các dịch vụ tận răng, yên tâm phát triển nghề nghiệp\nTrả lương OT cao, Ot ít, các sếp quan tâm lợi ích nhân viên khi ot",
+      "feedback": "Quy trình tạm, hơi lộn xộn cuối dự án, công việc cần tiếng anh nhưng ko dc train tiếng anh",
+      "rating": 5,
+      "ratingDetail": {
+        "Salary & benefits": 5,
+        "Training & learning": 4,
+        "Management cares about me": 5,
+        "Culture & fun": 5,
+        "Office & workspace": 5
+      }
+    },
+    {
+      "title": "Đồng nghiệp với background tốt. Benefits nhiều.",
+      "date": "April 2018",
+      "whatYouLike": "- Văn phòng đẹp, rộng, có piano, guitar, X-box, billas, đồ ăn vặt thoải mái. \n- Được cấp Macbook\n- Cơ hội đi Mẽo cao\n- Đồng nghiệp hỗ trợ, có nhiều hoạt động vui",
+      "feedback": "- địa điểm quận 4 hơi xa nhà\n- thêm các cơ hội training",
+      "rating": 4,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 3,
+        "Management cares about me": 3,
+        "Culture & fun": 5,
+        "Office & workspace": 5
+      }
+    },
+    {
+      "title": "Benifit tốt, range lương bình thường, công việc không có thách thức",
+      "date": "April 2018",
+      "whatYouLike": "Văn phòng rộng rãi, đẹp. Toạ lạc ngay toà quận 4, sát bên quận 1. Có căn tin, đồ ăn vặt thoải mái. Cung cấp macbook xin, phone, device cho dùng thoải mái (phục vụ công việc). Thời gian làm việc linh động. Nhiều benifit nhất từ đó tới giờ mình từng làm qua. Cuối tuần có thể lên cty ngồi làm việc cá nhân hoặc cty tuỳ thích mà không có vấn đề gì. Mọi người vui vẻ và hoà đồng với nhau.\nTừ năm 2017 thì đã có chế độ OT. 200% cho ngày cuối tuần",
+      "feedback": "Quy trình công việc chưa rõ ràng. Lương khó tăng vọt vì công việc không nhiều, không có thử thách để phát triển bản thân nên khó deal lên giữa chừng. Mọi thứ đều phụ thuộc vào yêu cầu từ các sếp bên kia US, HK (từ công việc đến lương, chế độ thưởng, OT...)",
+      "rating": 3,
+      "ratingDetail": {
+        "Salary & benefits": 3,
+        "Training & learning": 2,
+        "Management cares about me": 2,
+        "Culture & fun": 4,
+        "Office & workspace": 5
+      }
+    },
+    {
+      "title": "MISFIT giờ chỉ còn là dĩ vãng",
+      "date": "March 2018",
+      "whatYouLike": "Môi trường trẻ, năng động, đồ ăn thoải mái, macbook dc mang về nhà",
+      "feedback": "Misfit giờ chỉ còn là thương hiệu, người tài không còn. mang tiếng làm product nhưng thật ra là làm outsource cho các thương hiệu khác, chạy theo release nên sản phẩm ko có chất lượng. team VietNam ko có tiếng nói gì trong Fossil Group, process như rubbish, các sếp quản lý không tốt và xuất hiện nhiều anh em nhà họ Hứa.\nkhông quản lý chặt chẽ quá trình OT, OT ko trả lương tương xứng",
+      "rating": 2,
+      "ratingDetail": {
+        "Salary & benefits": 2,
+        "Training & learning": 3,
+        "Management cares about me": 2,
+        "Culture & fun": 2,
+        "Office & workspace": 2
+      }
+    },
+    {
+      "title": "Nhân viên mới đều được cấp macbook",
+      "date": "February 2018",
+      "whatYouLike": "Môi trường thoải mái, mọi người vui vẻ hòa đồng.\nGiờ giấc làm việc không gò bó.\nOT được trả đầy đủ. Được hỗ trợ ăn uống.\nx2 cho ngày cuối tuần.",
+      "feedback": "Khi có dự án, OT rất nhiều. deadline ngắn. Làm product nên không nhiều công nghệ mới.",
+      "rating": 4,
+      "ratingDetail": {
+        "Salary & benefits": 5,
+        "Training & learning": 4,
+        "Management cares about me": 4,
+        "Culture & fun": 5,
+        "Office & workspace": 5
+      }
+    },
+    {
+      "title": "Đồng nghiệp giỏi",
+      "date": "July 2017",
+      "whatYouLike": "Đồng nghiệp và sếp rất giỏi\nMôi trường thoải mái: có bàn bi lắc, góc âm nhạc, căngtin, Xbox,...\nChính sách đãi ngộ tốt",
+      "feedback": "Không có lương cho OT\nCông việc cần khá nhiều tiếng Anh nhưng lớp AV lại chưa hiệu quả\n\nTới kỳ deadline phải OT khá nhiều. Không có lương cho OT, chỉ được nghỉ bù lại bữa khác",
+      "rating": 5,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 5,
+        "Management cares about me": 4,
+        "Culture & fun": 5,
+        "Office & workspace": 5
+      }
+    },
+    {
+      "title": "Nice work place",
+      "date": "June 2017",
+      "whatYouLike": "Nice work place located in the centre of the city",
+      "feedback": "",
+      "rating": 4,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 4,
+        "Management cares about me": 4,
+        "Culture & fun": 4,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Môi trường làm việc thoải mái",
+      "date": "May 2017",
+      "whatYouLike": "Mọi người trẻ trung và có background khá tốt, môi trường làm việc thoải mái và benefit tốt.",
+      "feedback": "",
+      "rating": 4,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 3,
+        "Management cares about me": 3,
+        "Culture & fun": 4,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Good company, bad management.",
+      "date": "May 2017",
+      "whatYouLike": "- Provide all stuff you need to complete your jobs such as laptop, phone, watch...\n- Change to improve knowledge and experience fast\n- Onsite in US for 2 months.",
+      "feedback": "- Bad management, no working process.\n- Bad planning, no discussion with dev team, just based on US plan.\n- It's alway about release app rather than app quality. The boss only want to impress higher director rather than focus on provide a quality, useful app to user.\n- Not a product company anymore since we must do and follow anything that the US side want.\n OT is a must when you need to release app on time.",
+      "rating": 3,
+      "ratingDetail": {
+        "Salary & benefits": 3,
+        "Training & learning": 2,
+        "Management cares about me": 1,
+        "Culture & fun": 3,
+        "Office & workspace": 3
+      }
+    },
+    {
+      "title": "Good company, but not a great place for geeks",
+      "date": "April 2017",
+      "whatYouLike": "- Better-than-average salary.\n- Has everything you want to get the job done (macbook, display, phones).\n- Lot of toys (watches, trackers) to play with.\n- Flat and open culture.\n- Everyone is nice.\n- Some employees will have chances to work onsite at the US for 2 months.",
+      "feedback": "- Bad management, messy working process. \n- No technical training, library, open discussions / talks about technology.\n- The code quality depends on the developers, the company doesn't have any policy about coding standard, unit/integration tests, code reviews...\n- The tasks are not challenging. Most of the time you will add some small features, fix some bugs, make small changes to an existed features, etc...\n- The department's manager doesn't really care about employees, doesn't really have passion with technology and software, doesn't have management knowledge. The manager only cares about what the top managers / directors think about the department.\n- An offshore company - Not a startup anymore. A lot of excellence people have left the company.\n\nKhông hài lòng với OT",
+      "rating": 4,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 2,
+        "Management cares about me": 2,
+        "Culture & fun": 4,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Working style: Freelancing",
+      "date": "April 2017",
+      "whatYouLike": "Benefits: Macbook Pro (free to bring home), a chance to work with gadgets like watches, big office with open space, have insurances like other companies, Canteen...",
+      "feedback": "Got Canteen but only junk foods, good foods disappeared within 1 - 2 days\nNo Training, only requirements and solutions\nNo Transparent or Open discussion about Technology or things related to the field\nOT is a must if not being able to finish the task on time. However, there will be no support\nOnly suitable with people who have tons of experiences and demand high payment",
+      "rating": 3,
+      "ratingDetail": {
+        "Salary & benefits": 3,
+        "Training & learning": 1,
+        "Management cares about me": 1,
+        "Culture & fun": 3,
+        "Office & workspace": 3
+      }
+    },
+    {
+      "title": "Môi trường làm việc tốt. OT nhiều",
+      "date": "March 2017",
+      "whatYouLike": "- Môi trường làm việc tốt, nhiều chuyên gia trong lĩnh vực của mình\n- Chế độ đãi ngộ (lương, bảo hiểm, ...) khá tốt",
+      "feedback": "- OT nhiều mỗi đợt release\n- Làm việc khá căng thẳng",
+      "rating": 3,
+      "ratingDetail": {
+        "Salary & benefits": 3,
+        "Training & learning": 3,
+        "Management cares about me": 3,
+        "Culture & fun": 4,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Nhiều cơ hội học hỏi",
+      "date": "September 2016",
+      "whatYouLike": "Được làm việc cùng những đồng nghiệp high-profile.\nSếp thoải mái, vui vẻ, tạo điều kiện để học hỏi thêm.\nCác chế độ ngoài lương tốt (gym, đồ ăn xế, ăn vặt).",
+      "feedback": "Nhiều người giỏi mà tôi ngưỡng mộ đã không còn làm ở công ty.",
+      "rating": 5,
+      "ratingDetail": {
+        "Salary & benefits": 5,
+        "Training & learning": 5,
+        "Management cares about me": 4,
+        "Culture & fun": 5,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Môi trường thân thiện vui vẻ",
+      "date": "August 2016",
+      "whatYouLike": "Một nơi có nhiều talent có học vị cao và đó là cơ hội để tiếp xúc và học hỏi nhiều điều về công nghệ, kĩ thuật và kinh nghiệm làm việc của các anh chị. Product khá hấp dẫn và thú vị về thiết bị theo dõi sức khỏe. Được đeo trên người những thiết bị so cool. Benefit và salary hấp dẫn.",
+      "feedback": "Chuột trong văn phòng hơi nhiều, nhưng chắc sẽ ổn vì thời gian tới sẽ chuyển lên văn phòng mới. \n Công ty hoàn toàn không có chính sách gì cho việc làm OT nếu có thì support ăn tối 200k, OT là điều tất yếu nếu không thì sẽ bị đánh giá là không chịu được nhiệt, hoặc thiếu tinh thần. Việc làm OT thì hầu như không có gì lạ, hằng ngày mọi người làm tới 7-8-9pm. Thời điểm release thì thậm chí làm tới 3-4h sáng là bình thường. Ngày hôm sau may ra chỉ được off buổi sáng. Ngoài ra không gì cả.",
+      "rating": 5,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 4,
+        "Management cares about me": 5,
+        "Culture & fun": 3,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Tiền nhiều nhưng cũng đầy áp lực",
+      "date": "August 2016",
+      "whatYouLike": "Misfit đã đổi qua là Fossil Vietnam. Tiền lương, chế độ đãi ngộ với cty này khá tốt. Mình thấy thì nhân viên ở cty thực sự là chỉ cần nghĩ tới công việc làm việc cho tốt còn mọi thứ thì công ty nó chi trả cho hết. Tiền lương cao hơn các công ty khác, sẵn sàng trả mức lương mình mong muốn nếu mình thật sự gỏi.",
+      "feedback": "Cái gì cũng có giá của nó. Tuyển dụng khó, yêu cầu làm việc độc lập cao, áp lực từ công việc, từ cấp trên. Khó lòng mà cảm nhận được sự hòa đồng, thân thiện hay gì ở đây, kiểu như chỉ có công việc và thể hiện.\nNếu ai giỏi muốn cày để kiếm tiền muốn chứng tỏ thì Ok nó phù hợp.\nNếu ai muốn làm một công việc mình yêu thích, có những người bạn với những kỷ niệm đẹp, sống một cuộc sống bình thản làm việc, chăm sóc gia đình, bản thân rồi tham gia các câu lạc bộ thì không nên chọn môi trường này.",
+      "rating": 3,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 3,
+        "Management cares about me": 1,
+        "Culture & fun": 1,
+        "Office & workspace": 2
+      }
+    },
+    {
+      "title": "Môi trường làm việc trẻ trung, open, thiên về nhân viên",
+      "date": "August 2016",
+      "whatYouLike": "+ Làm việc với mô hình Agile. \n+ Self-working: Tự astimate taks, tự phát triển tasks, tự viết test case...\n+ Opening working: cởi mở, trung thực",
+      "feedback": "+ Yêu cầu: không rõ ràng, hay sửa đổi.\n+ Cách quản lý tasks assignment: làm theo cảm tính cá nhân, không nhất quán.",
+      "rating": 3,
+      "ratingDetail": {
+        "Salary & benefits": 4,
+        "Training & learning": 3,
+        "Management cares about me": 3,
+        "Culture & fun": 3,
+        "Office & workspace": 4
+      }
+    },
+    {
+      "title": "Hard working a lot!",
+      "date": "July 2016",
+      "whatYouLike": "A lot of nice people, technologies, and great devices like watch, activity tracker. Food, drink and so many stuff else",
+      "feedback": "Define a real culture to make everyone feel happy, the boss should communicate transparent more than that.",
+      "rating": 3,
+      "ratingDetail": {
+        "Salary & benefits": 3,
+        "Training & learning": 3,
+        "Management cares about me": 2,
+        "Culture & fun": 2,
+        "Office & workspace": 3
+      }
+    }
+  ],
+  "updatedAt": "2020-11-03T07:44:44.748Z"
+}
