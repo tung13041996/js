@@ -154,20 +154,24 @@ function quick_sort(array) {
         arrayLeft = [],
         arrayRight = [],
         newArray = [];
-    const pivot = array[length-1];
+    const pivot = array[length - 1];
     console.log(pivot)
 
     //array has only 1 value ==> array sorted
-    if (length <= 1)  {return array;}
+    if (length <= 1) {
+        return array;
+    }
 
-    for (let i=0; i<length-1; i++) {
-        if (array[i] < pivot) {arrayLeft.push(array[i]);}
-        else  {arrayRight.push(array[i]);}
+    for (let i = 0; i < length - 1; i++) {
+        if (array[i] < pivot) {
+            arrayLeft.push(array[i]);
+        } else {
+            arrayRight.push(array[i]);
+        }
     }
 
     quick_sort(arrayLeft);
     quick_sort(arrayRight);
-
 
 
     console.log(newArray);
@@ -182,7 +186,49 @@ function quick_sort(array) {
 
     return array;
 }
-console.log(sort_bubble(arr));
+
+
+function new_quick_sort(array) {
+    // stop
+    if (array.length <= 1) {
+        // left < right
+        console.log("Stop recursion: ", array);
+        return array; // left + pivot + right
+    }
+
+    // find pivot
+    let pivot = array[array.length - 1],
+        left = [],
+        right = [];
+
+    // split array into left and right
+    console.log("-------------");
+    console.log(`Begin recursion: `, array);
+    for (let i = 0; i < array.length - 1; i++) {
+        if (array[i] <= pivot) {
+            left.push(array[i]);
+        } else {
+            right.push(array[i]);
+        }
+    }
+    console.log("After recursion: ");
+    //console.log("-- Left: ", new_quick_sort(left, 'left'));
+    console.log("-- pivot: ", pivot);
+    //console.log("-- right: ", new_quick_sort(right, 'right'));
+
+    // combine left + pivot + right
+    let result = new_quick_sort(left);
+    result.push(pivot);
+    result.concat(new_quick_sort(right));
+    //console.log(new_quick_sort(left));
+
+    console.log("End with result: ", result);
+    return result;
+}
+
+
+console.log(new_quick_sort(arr));
+
 
 // button.addEventListener("click", function() {
 //     result.innerHTML = "Mảng sau khi sắp xếp tăng dần: " + sort_insertion(arr);
