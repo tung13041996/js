@@ -29,45 +29,6 @@ function sortArrNormal(array) {
     return array;
 }
 
-function sort_insertion(array) {
-    let length = array.length,
-        count = 0,
-        j, temVal;
-    console.log("Default array: " + array);
-
-    for (let i = 1; i < length; i++) {
-        console.log("***********Star loop " + i + "************** \r\n");
-        let is_increase;
-        console.log("Get value array[" + i + "] = " + array[i] + ", start insertion:");
-        j = i - 1;
-        temVal = array[i];
-        count++;
-        is_increase = 0;
-
-        while (j >= 0 && array[j] > temVal) {
-            console.log("Because array[" + j + "]=" + array[j] + " > array[" + (j + 1) + "]=" + array[j + 1] + ", so we change index together, we have a new array: ");
-            array[j + 1] = array[j];
-            j -= 1;
-            count++;
-            is_increase++;
-            array[j + 1] = temVal;
-            console.log(array);
-        }
-
-        if (is_increase === 0) {
-            console.log("Because value array[" + i + "] = " + array[i] + " bigger than before value --> Finish loop.")
-        }
-        console.log("Finish loop " + i + ", we have new array:")
-        console.log(array);
-        console.log("***********Finish loop " + i + "************** \r\n");
-    }
-    console.log("--------DONE----------------")
-
-    console.log("Array after doing insertion sort: " + array);
-    console.log("Count loop:" + count);
-    return array;
-}
-
 function sort_selection(array) {
     let length = array.length,
         count = 0;
@@ -111,6 +72,11 @@ function sort_bubble(array) {
     let length = array.length,
         count = 0,
         swap = false;
+
+    //1 2 5 6 6 3 8
+    // 2 3 4 5 6 7
+
+
     for (let i = 0; i < length; i++) {
         console.log("***********Star loop " + (i + 1) + "************** \r\n");
         swap = false;
@@ -138,6 +104,84 @@ function sort_bubble(array) {
     return array;
 }
 
+function sort_insertion(array) {
+    let length = array.length,
+        count = 0,
+        j, temVal;
+    console.log("Default array: " + array);
+
+    for (let i = 1; i < length; i++) {
+        console.log("***********Star loop " + i + "************** \r\n");
+        let is_increase;
+        console.log("Get value array[" + i + "] = " + array[i] + ", start insertion:");
+        j = i - 1;
+        temVal = array[i];
+        count++;
+        is_increase = 0;
+        //1 5 6 9 7 8 10 5
+        //0 1 2 3 4 5 6  7
+
+        //arr=1 5 6 7 8 9
+        //temVal = 8
+
+        while (j >= 0 && array[j] > temVal) {
+            console.log("Because array[" + j + "]=" + array[j] + " > array[" + (j + 1) + "]=" + array[j + 1] + ", so we change index together, we have a new array: ");
+            array[j + 1] = array[j];
+            j -= 1;
+            count++;
+            is_increase++;
+            array[j + 1] = temVal;
+            console.log(array);
+        }
+
+        if (is_increase === 0) {
+            console.log("Because value array[" + i + "] = " + array[i] + " bigger than before value --> Finish loop.")
+        }
+        console.log("Finish loop " + i + ", we have new array:")
+        console.log(array);
+        console.log("***********Finish loop " + i + "************** \r\n");
+    }
+    console.log("--------DONE----------------")
+
+    console.log("Array after doing insertion sort: " + array);
+    console.log("Count loop:" + count);
+    return array;
+}
+
+function quick_sort(array) {
+    let length = array.length,
+        count = 0,
+        arrayLeft = [],
+        arrayRight = [],
+        newArray = [];
+    const pivot = array[length-1];
+    console.log(pivot)
+
+    //array has only 1 value ==> array sorted
+    if (length <= 1)  {return array;}
+
+    for (let i=0; i<length-1; i++) {
+        if (array[i] < pivot) {arrayLeft.push(array[i]);}
+        else  {arrayRight.push(array[i]);}
+    }
+
+    quick_sort(arrayLeft);
+    quick_sort(arrayRight);
+
+
+
+    console.log(newArray);
+
+    // console.log(arrayLeft);
+    // console.log(arrayRight);
+    // console.log(arrayLeft + pivot + arrayRight);
+    // quick_sort(arrayLeft + pivot + arrayRight);
+
+    // console.log("Array after doing bubble-sort: " + array);
+    // console.log("Count loop:" + count);
+
+    return array;
+}
 console.log(sort_bubble(arr));
 
 // button.addEventListener("click", function() {
