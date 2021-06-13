@@ -5,6 +5,9 @@ let arr = [1, 9, 6, 8, 15, 3, 8, 48, 626, 15, 23, 40],
     result = document.getElementById('result');
 screen.innerHTML = "Mảng ban đầu:" + arr;
 
+function swap(array, index_a, index_b) {
+    return array;
+}
 
 function sortArrNormal(array) {
     let length = array.length,
@@ -19,6 +22,7 @@ function sortArrNormal(array) {
                 tem = array[i];
                 array[i] = array[j];
                 array[j] = tem;
+                //array=swap(array,i,j);
                 console.log("-----Đổi vị trí thứ " + i + " cho vị trí thứ " + j + ", ta được mảng mới:");
                 console.log(array);
             }
@@ -85,9 +89,11 @@ function sort_bubble(array) {
             count++;
             if (array[j] > array[j + 1]) {
                 console.log("Because array[" + j + "]=" + array[j] + " > array[" + (j + 1) + "]=" + array[j + 1] + ", so we change index together, we have a new array: ");
+
                 tem = array[j];
                 array[j] = array[j + 1];
                 array[j + 1] = tem;
+
                 swap = true;
                 console.log(array);
             }
@@ -127,12 +133,15 @@ function sort_insertion(array) {
         while (j >= 0 && array[j] > temVal) {
             console.log("Because array[" + j + "]=" + array[j] + " > array[" + (j + 1) + "]=" + array[j + 1] + ", so we change index together, we have a new array: ");
             array[j + 1] = array[j];
-            j -= 1;
+            j--;
             count++;
             is_increase++;
             array[j + 1] = temVal;
             console.log(array);
         }
+        /*for (let j = i - 1; j >= 0 && array[j] > temVal; j -= 1) {
+
+        }*/
 
         if (is_increase === 0) {
             console.log("Because value array[" + i + "] = " + array[i] + " bigger than before value --> Finish loop.")
@@ -227,7 +236,7 @@ function new_quick_sort(array) {
 }
 
 
-console.log(new_quick_sort(arr));
+console.log(sort_bubble(arr));
 
 
 // button.addEventListener("click", function() {
