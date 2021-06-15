@@ -5,8 +5,13 @@ let arr = [1, 9, 6, 8, 15, 3, 8, 48, 626, 15, 23, 40],
     result = document.getElementById('result');
 screen.innerHTML = "Mảng ban đầu:" + arr;
 
-function swap(array, index_a, index_b) {
-    return array;
+function swap(arr, index_a, index_b) {
+    let temp;
+    temp = arr[index_a];
+    arr[index_a] = arr[index_b];
+    arr[index_b] = temp;
+
+    return arr;
 }
 
 function sortArrNormal(array) {
@@ -16,13 +21,9 @@ function sortArrNormal(array) {
     for (let i = 0; i < length - 1; i++) {
         console.log("** Mảng sau lần lặp thứ " + (i + 1) + ":");
         for (let j = i + 1; j < length; j++) {
-            let tem;
             count++;
             if (array[i] > array[j]) {
-                tem = array[i];
-                array[i] = array[j];
-                array[j] = tem;
-                //array=swap(array,i,j);
+                swap(array, i, j);
                 console.log("-----Đổi vị trí thứ " + i + " cho vị trí thứ " + j + ", ta được mảng mới:");
                 console.log(array);
             }
@@ -40,28 +41,25 @@ function sort_selection(array) {
     for (let i = 0; i < length; i++) {
         count++;
         console.log("***********Star loop " + (i + 1) + "************** \r\n");
-        let min_index, min_number, min_number_index, temp;
-        min_index = i;
+        let min_number, min_number_index;
         min_number_index = i
         min_number = array[i];
 
         //find min number and index of min number in (min_index -> length)
-        for (let j = min_index; j < length; j++) {
+        for (let j = i; j < length; j++) {
             count++;
             if (array[j] < min_number) {
                 min_number_index = j;
                 min_number = array[j];
             }
         }
-        console.log("Smallest number in (array[" + min_index + "] --> array[" + length + "]) is: " + min_number);
+        console.log("Smallest number in (array[" + i + "] --> array[" + length + "]) is: " + min_number);
 
         //swap position of index current and index of smallest number
-        temp = array[min_index];
-        array[min_index] = array[min_number_index];
-        array[min_number_index] = temp;
+        swap(array, i, min_number_index);
 
 
-        console.log("==> newArray[" + min_index + "]=" + array[min_index]);
+        console.log("==> newArray[" + i + "]=" + array[i]);
         console.log("New array after loop " + (i + 1) + " is: " + array);
         console.log("***********Finish loop " + (i + 1) + "************** \r\n");
     }
@@ -75,32 +73,23 @@ function sort_selection(array) {
 function sort_bubble(array) {
     let length = array.length,
         count = 0,
-        swap = false;
-
-    //1 2 5 6 6 3 8
-    // 2 3 4 5 6 7
-
+        is_swap = false;
 
     for (let i = 0; i < length; i++) {
         console.log("***********Star loop " + (i + 1) + "************** \r\n");
-        swap = false;
+        is_swap = false;
         for (let j = 0; j < length - i; j++) {
-            let tem;
             count++;
             if (array[j] > array[j + 1]) {
                 console.log("Because array[" + j + "]=" + array[j] + " > array[" + (j + 1) + "]=" + array[j + 1] + ", so we change index together, we have a new array: ");
-
-                tem = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = tem;
-
-                swap = true;
+                swap(array, j, j + 1);
+                is_swap = true;
                 console.log(array);
             }
             //after this loop, biggest number is in the end of array
         }
         console.log("***********Finish loop " + (i + 1) + "************** \r\n");
-        if (!swap) {
+        if (!is_swap) {
             break;
         }
     }
@@ -124,11 +113,6 @@ function sort_insertion(array) {
         temVal = array[i];
         count++;
         is_increase = 0;
-        //1 5 6 9 7 8 10 5
-        //0 1 2 3 4 5 6  7
-
-        //arr=1 5 6 7 8 9
-        //temVal = 8
 
         while (j >= 0 && array[j] > temVal) {
             console.log("Because array[" + j + "]=" + array[j] + " > array[" + (j + 1) + "]=" + array[j + 1] + ", so we change index together, we have a new array: ");
@@ -139,9 +123,6 @@ function sort_insertion(array) {
             array[j + 1] = temVal;
             console.log(array);
         }
-        /*for (let j = i - 1; j >= 0 && array[j] > temVal; j -= 1) {
-
-        }*/
 
         if (is_increase === 0) {
             console.log("Because value array[" + i + "] = " + array[i] + " bigger than before value --> Finish loop.")
@@ -164,10 +145,10 @@ function quick_sort(array) {
         arrayRight = [],
         newArray = [];
     const pivot = array[length - 1];
-    console.log(pivot)
-
+    console.log("Xét mảng: " + array);
     //array has only 1 value ==> array sorted
     if (length <= 1) {
+        console.log("Mảng có ít hơn 1 phần tử nên không cần sắp xếp => mảng mới: " + array);
         return array;
     }
 
@@ -178,67 +159,15 @@ function quick_sort(array) {
             arrayRight.push(array[i]);
         }
     }
+    console.log("pivot=" + pivot);
+    console.log("Mảng các số nhỏ hơn pivot=" + pivot + " là: " + arrayLeft);
+    console.log("Mảng các số lớn hơn pivot=" + pivot + " là: " + arrayRight);
+    console.log("-----------------");
+    newArray = quick_sort(arrayLeft).concat([pivot], quick_sort(arrayRight));
 
-    quick_sort(arrayLeft);
-    quick_sort(arrayRight);
-
-
-    console.log(newArray);
-
-    // console.log(arrayLeft);
-    // console.log(arrayRight);
-    // console.log(arrayLeft + pivot + arrayRight);
-    // quick_sort(arrayLeft + pivot + arrayRight);
-
-    // console.log("Array after doing bubble-sort: " + array);
-    // console.log("Count loop:" + count);
-
-    return array;
+    console.log("Mảng sau khi sắp xếp: " + newArray);
+    console.log("-----Finish-------")
+    return newArray;
 }
 
-
-function new_quick_sort(array) {
-    // stop
-    if (array.length <= 1) {
-        // left < right
-        console.log("Stop recursion: ", array);
-        return array; // left + pivot + right
-    }
-
-    // find pivot
-    let pivot = array[array.length - 1],
-        left = [],
-        right = [];
-
-    // split array into left and right
-    console.log("-------------");
-    console.log(`Begin recursion: `, array);
-    for (let i = 0; i < array.length - 1; i++) {
-        if (array[i] <= pivot) {
-            left.push(array[i]);
-        } else {
-            right.push(array[i]);
-        }
-    }
-    console.log("After recursion: ");
-    //console.log("-- Left: ", new_quick_sort(left, 'left'));
-    console.log("-- pivot: ", pivot);
-    //console.log("-- right: ", new_quick_sort(right, 'right'));
-
-    // combine left + pivot + right
-    let result = new_quick_sort(left);
-    result.push(pivot);
-    result.concat(new_quick_sort(right));
-    //console.log(new_quick_sort(left));
-
-    console.log("End with result: ", result);
-    return result;
-}
-
-
-console.log(sort_bubble(arr));
-
-
-// button.addEventListener("click", function() {
-//     result.innerHTML = "Mảng sau khi sắp xếp tăng dần: " + sort_insertion(arr);
-// })
+console.log(quick_sort(arr));
