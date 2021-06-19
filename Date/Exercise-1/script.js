@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //Check year is leap year?
     let checkLeapYear = function(y) {
-        return y % 4 === 0;
+        return (y % 4 === 0 && y % 100 !==0) || y % 400 === 0;
     }
 
     //check input value is correct
@@ -41,37 +41,37 @@ $(document).ready(function () {
             n;
         switch (m) {
             case 2:
-                if (d<19) {n=0;} else {n=1};
+                if (d<19) {n=0;} else {n=1}
                 break;
             case 3:
-                if (d<21) {n=1;} else {n=2};
+                if (d<21) {n=1;} else {n=2}
                 break;
             case 4:
-                if (d<20) {n=2;} else {n=3};
+                if (d<20) {n=2;} else {n=3}
                 break;
             case 5:
-                if (d<21) {n=3;} else {n=4};
+                if (d<21) {n=3;} else {n=4}
                 break;
             case 6:
-                if (d<22) {n=4;} else {n=5};
+                if (d<22) {n=4;} else {n=5}
                 break;
             case 7:
-                if (d<23) {n=5;} else {n=6};
+                if (d<23) {n=5;} else {n=6}
                 break;
             case 8:
-                if (d<23) {n=6;} else {n=7};
+                if (d<23) {n=6;} else {n=7}
                 break;
             case 9:
-                if (d<23) {n=7;} else {n=8};
+                if (d<23) {n=7;} else {n=8}
                 break;
             case 10:
-                if (d<23) {n=8;} else {n=9};
+                if (d<23) {n=8;} else {n=9}
                 break;
             case 11:
-                if (d<23) {n=9;} else {n=10};
+                if (d<23) {n=9;} else {n=10}
                 break;
             case 12:
-                if (d<22) {n=10;} else {n=11};
+                if (d<22) {n=10;} else {n=11}
                 break;
 
             default:
@@ -84,7 +84,7 @@ $(document).ready(function () {
     //find date of month
     let dateOfMonth = function(d,m,y) {
         let n;
-        if (checkLeapYear(y)) {n=29;} else {n=28};
+        if (checkLeapYear(y)) {n=29;} else {n=28}
         let day_of_month = [31,n,31,30,31,30,31,31,30,31,30,31];
         return day_of_month[m-1];
     }
@@ -104,94 +104,102 @@ $(document).ready(function () {
 
 
     //Doing exercise
-    let $button_check_value = $('.input-value--type button'),
-        $screen_check_value = $('.input-value #result'),
+    let $screen_check_value = $('.input-value #result'),
         $exercise = $('.exercise'),
+        $input_box = $(".input-value input"),
         day, month, year;
 
     //hide Exercises, only hide when input correct value
     $exercise.addClass("hide");
 
-    //click button "check input value" to check input value is right or wrong
-    $button_check_value.on("click", function() {
+    //input value and check it immediately
+    $input_box.on("change keyup", function() {
         let value_input = $('.input-value label input').val(),
             length = value_input.length,
             fYear = "";
-            day = parseInt(value_input[0] + value_input[1]); //get day
-            month = parseInt(value_input[3] + value_input[4]); //get month
-        for (let i=length-1; i>= length - 4; i--) {fYear = value_input[i] + fYear;}
-        year = parseInt(fYear); //get year
 
+        //get day value
+        day = parseInt(value_input[0] + value_input[1]);
+
+        //get month value
+        month = parseInt(value_input[3] + value_input[4]);
+
+        //get year value
+        for (let i=length-1; i>= length - 4; i--) {fYear = value_input[i] + fYear;}
+        year = parseInt(fYear);
+
+        //function to show result if input value is correct
+        let showPropertyForCorrectValue = function() {
+            $screen_check_value.addClass('green correct');
+            $screen_check_value.removeClass('red');
+            $screen_check_value.html("Correct value");
+            $exercise.removeClass("hide");
+            $exercise.addClass("show");
+        }
+
+        //function to show result if input value is wrong
+        let showPropertyForWrongValue = function() {
+            $screen_check_value.removeClass('green');
+            $screen_check_value.removeClass('correct');
+            $screen_check_value.addClass('red');
+            $exercise.addClass("hide");
+            $exercise.removeClass("show");
+        }
+
+        // check input value
         if (length===0) {$screen_check_value.html("Please input value");}
-        else {
+        else if (length<10) {
+            $screen_check_value.html("Please input value fully");
+            showPropertyForWrongValue();
+        } else if (length>10) {
+            $screen_check_value.html("Input value is not correct format");
+            showPropertyForWrongValue();
+        } else {
             //if input value is correct
             if (checkInputValue(day,month,year)) {
-                $screen_check_value.addClass('green');
-                $screen_check_value.removeClass('red');
-                $screen_check_value.html("Correct value");
-                $exercise.removeClass("hide");
-                $exercise.addClass("show");
+                showPropertyForCorrectValue();
             } else {
-                $screen_check_value.removeClass('green');
-                $screen_check_value.addClass('red');
                 $screen_check_value.html("!!Wrong value, please input again");
-                $exercise.addClass("hide");
-                $exercise.removeClass("show");
+                showPropertyForWrongValue();
             }
         }
 
-        //do exercise 1 - Find day of week
-        let $show_result_ex_1 = $(".exercise #result-1 "),
-            $button_ex1 = $(".exercise.one button");
-        $button_ex1.on("click", function() {
-            let $result = day + "/" + month + "/" + year + " is: " + dayOfWeek(day,month,year);
-            $show_result_ex_1.html($result);
-        })
+        let objectResult = [
+            {
+                locate : $(".exercise #result-1"),
+                result: day + "/" + month + "/" + year + " is: " + dayOfWeek(day,month,year)
+            },
+            {
+                locate : $(".exercise #result-2"),
+                result: "Year " + year + " in Lunar Calendar in ASIA is: " + lunarCalendar(year)
+            },
+            {
+                locate : $(".exercise #result-3"),
+                result: "People who born in " + day + "/" + month + " were: " + findZodiac(day,month)
+            },
+            {
+                locate : $(".exercise #result-4"),
+                result: checkLeapYear(year)
+                    ? "Because " + year + "%4 === 0 and " + year + "% 100 !==0, so year " + year + " is a leap year"
+                    : "Because " + year + "%4 != 0, so year " + year + " is not a leap year"
+            },
+            {
+                locate : $(".exercise #result-5"),
+                result: "From 1/1/" + year + " to " + day + "/" + month + "/" + year + ", it has total:"
+                    + dateOfYear(day,month,year) + " days"
+            },
+            {
+                locate : $(".exercise #result-6"),
+                result: "Month " + month + "/" + year + " has: " + dateOfMonth(day,month,year) + " days"
+            },
 
-        //do exercise 1 - Find Lunar calendar
-        let $show_result_ex_2 = $(".exercise #result-2 "),
-            $button_ex2 = $(".exercise.two button");
-        $button_ex2.on("click", function() {
-            let $result = "Year " + year + " in Lunar Calendar in ASIA is: " + lunarCalendar(year);
-            $show_result_ex_2.html($result);
-        });
+        ]
 
-        //do exercise 3 - Find Zodiac
-        let $show_result_ex_3 = $(".exercise #result-3 "),
-            $button_ex3 = $(".exercise.three button");
-        $button_ex3.on("click", function() {
-            let $result = "People who born in " + day + "/" + month + " were: " + findZodiac(day,month);
-            $show_result_ex_3.html($result);
-        });
-
-        //do exercise 4 - is leap year
-        let $show_result_ex_4 = $(".exercise #result-4 "),
-            $button_ex4 = $(".exercise.four button");
-        $button_ex4.on("click", function() {
-            let $result = "";
-            if (checkLeapYear(year)) {
-                $result = "Because " + year + "%4 === 0, so year " + year + " is a leap year";
-            } else {
-                $result = "Because " + year + "%4 != 0, so year " + year + " is not a leap year";
+        if ($screen_check_value.hasClass('correct')) {
+            for (let i=0; i<objectResult.length; i++) {
+                objectResult[i].locate.html(objectResult[i].result);
             }
-            $show_result_ex_4.html($result);
-        });
-
-        //do exercise 5 - Find total day in year
-        let $show_result_ex_5 = $(".exercise #result-5 "),
-            $button_ex5 = $(".exercise.five button");
-        $button_ex5.on("click", function() {
-            let $result = "From 1/1/" + year + " to " + day + "/" + month + "/" + year + ", it has total:"
-                + dateOfYear(day,month,year) + " days";
-            $show_result_ex_5.html($result);
-        });
-
-        //do exercise 6 - Find total day in year
-        let $show_result_ex_6 = $(".exercise #result-6 "),
-            $button_ex6 = $(".exercise.six button");
-        $button_ex6.on("click", function() {
-            let $result = "Month " + month + "/" + year + " has: " + dateOfMonth(day,month,year) + " days";
-            $show_result_ex_6.html($result);
-        });
-    })
+        }
+        else {$exercise.removeClass("show"); $exercise.addClass("hide");}
+    });
 })
