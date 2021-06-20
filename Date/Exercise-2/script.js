@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //Check year is leap year?
     let checkLeapYear = function(y) {
-        return y % 4 === 0;
+        return (y % 4 === 0 && y % 100 !==0) || y % 400 === 0;
     }
 
     //find date of month
@@ -23,7 +23,7 @@ $(document).ready(function () {
         return result;
     }
 
-    //change input date to total day from 1/1/0
+    //change input date to total day from 1/1/1
     let changeToDay = function(d,m,y) {
         let total = 0;
         for (let i=1; i<y; i++) {
@@ -116,6 +116,70 @@ $(document).ready(function () {
         } else if (d===29) {
             return (m===2) && checkLeapYear(y);
         } else {return true;}
+    }
+
+    let findNextMonth = function(m) {
+        if (m === 12 ) {return 1} else {return (m+1);}
+    }
+    let findPrevMonth = function(m) {
+        if (m === 1 ) {return 12} else {return (m-1);}
+    }
+    let plusDate = function(d,m,y,c) {
+
+        if (c>=0) {
+            //chang current date to end of current month and update total day remain
+            if (c <= dayOfMonth(d,m,y) - d) {
+                d += c;
+            } else {
+                c -= (dayOfMonth(d,m,y) - d);
+                d = dayOfMonth(d,m,y);
+            }
+            console.log("Số ngày còn lại sau khi update đến cuối tháng: " + c);
+            console.log("--------------------");
+            while (c > dayOfMonth(d,findNextMonth(m),y)) {
+                m++;
+                if (m>12) {m=1; y++;}
+                c -= dayOfMonth(d,m,y);
+                console.log("Ngày hiện tại: " + dayOfMonth(d,m,y));
+                console.log("Tháng hiện tại: " + m);
+                console.log("Năm hiện tại: " + y);
+                console.log("Số ngày còn lại sau khi update đến cuối tháng: " + c);
+                console.log("--------------------");
+            }
+            if (c>0) {
+                if (m===12) {m = findNextMonth(m); y++}
+                else {m++;}
+                d=c;
+            }
+        } else {
+            console.log("Ngày hiện tại: " + d + "/" + m + "/" + y);
+            c = Math.abs(c);
+            //chang current date to begin of current month and update total day remain
+            if (d>1) {
+                c -= (d-1);
+                d = 1;
+            }
+            console.log("Sau khi update đến đầu tháng, số ngày còn lại sau khi update đến đầu tháng: " + c);
+            console.log("Ngày hiện tại sau khi update: " + d + "/" + m + "/" + y);
+
+            while (c > dayOfMonth(d,findPrevMonth(m),y)) {
+                m--;
+                if (m<1) {m=12; y--;}
+                c -= dayOfMonth(d,m,y);
+                console.log("--------------------");
+                console.log("Ngày hiện tại: 1");
+                console.log("Tháng hiện tại: " + m);
+                console.log("Năm hiện tại: " + y);
+                console.log("Số ngày còn lại sau khi update đến cuối tháng: " + c);
+            }
+            if (c>0) {
+                if (m===1) {m = findPrevMonth(m); y--}
+                else {m--;}
+                d = dayOfMonth(d,m,y) - c + 1;
+            }
+        }
+
+        return [d, m, y];
     }
 
 
