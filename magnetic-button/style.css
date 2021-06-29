@@ -1,22 +1,53 @@
 body {
-    min-height: 100vh; padding: 50px; box-sizing: border-box;
+    min-height: 100vh; padding: 50px; box-sizing: border-box; margin:0;
     display: flex; align-items: center; flex-wrap: wrap; justify-content: center;
-    font-family:"Arial", sans-serif;
+    font-family:"Arial", sans-serif; overflow:hidden;
 }
 .container {
     max-width:1360px; padding:0 40px;
     margin-left:auto; margin-right:auto;
 }
-h1 {text-align:center; font-weight:500; font-size:40px; margin-bottom:50px;}
+h1, h2 {text-align:center; font-weight:500; margin-bottom:30px;}
+h1 {font-size:40px;}
+h2 {font-size:35px;}
+.container > div:not(:last-child) {margin-bottom:35px;}
+a.btn {
+    min-width:150px; min-height:50px; background: linear-gradient(90deg,#0165cd,#55e6fb);
+    display:inline-flex; align-items:center; justify-content:center;
+    text-align:center; text-decoration:none; font-size:18px; color: #fff;
+    transform:translate(0,0);
+    transition: all .3s linear;
+}
+a.btn:hover {background: linear-gradient(90deg,#FCC0C0,#C6E81B);}
+
+.round-mouse {
+    width:20px; height:20px; border-radius:50%; border:1px solid #ccc;
+    position:absolute; top:0; left:0;
+    transition:all .5s ease;
+}
+
+/*exercise 1*/
 .area-wrap {
     width:100%; min-height:400px; background:lightcyan; overflow:hidden;
     border:5px solid orange; border-radius:15px; box-shadow:0 0 10px 1px rgba(0,0,0,.1);
     align-items:center; justify-content:center; display:flex;
 }
-.area-wrap a {
-    min-width:150px; min-height:50px; background: linear-gradient(90deg,#0165cd,#55e6fb);
-    display:inline-flex; align-items:center; justify-content:center;
-    text-align:center; text-decoration:none; font-size:18px; color: #fff;
-    transform:translate(0,0);
-    transition: all .1s linear;
+
+/*exercise 4*/
+.exercise-four {width:100%; height:200px; background:#BBF5B6; border-radius:15px; overflow:hidden;}
+.exercise-four ul {
+    list-style:none; margin:0; padding:0;
+    display:flex; align-items:center; justify-content:space-between;
 }
+.exercise-four ul li {padding:10px 20px;}
+.exercise-four ul li a {
+    text-decoration:none; font-size:18px; color:#2358EE;padding:3px 0;
+    position:relative; transition: all .3s ease;
+}
+.exercise-four ul li a:before {
+    content:''; display:block;
+    width:0; height:2px; background:#2358EE;
+    position:absolute; left:0; bottom:0; transition: all .3s ease;
+}
+.exercise-four ul li a:hover {text-shadow:0 -6px 10px rgba(161, 101, 236, 1);}
+.exercise-four ul li a:hover:before {width:100%; transition: all .3s ease;}
