@@ -1,0 +1,56 @@
+* {
+    box-sizing:border-box; outline:0; border:0;
+    margin:0; padding:0;
+}
+body {
+    min-height:100vh; position:relative;
+}
+.container {
+    max-width:1000px; margin:auto;
+    padding:0 40px;
+}
+.preloader {
+    width:100%; height:100vh; overflow:hidden;
+    transition:1s ease; z-index:1;
+    position:absolute; top:0; left:0; pointer-events:none;
+}
+.preloader ul {list-style:none; margin:0; width:100%; background:skyblue;}
+.preloader ul li {width:100%; height:calc(100vh / var(--total)); transform:translateX(-100%); transition:.5s ease;}
+
+
+/*content*/
+.content-wrap img {
+    width:100%; height:500px; object-fit:cover; object-position:center;
+    margin-bottom:50px;
+}
+.content-wrap p {font-size:18px; font-family:"Raleway", sans-serif; line-height:1.8;}
+
+/*button*/
+.button-area {
+    position:absolute;top:0; left:0;
+    width:100%; height:100vh; overflow:hidden; background:lightcyan; z-index:2;
+    transition:1s linear;
+}
+.button-wrap {
+    width:100%; height:100%;
+    display:flex; align-items:center;
+    justify-content:center;
+}
+.button-wrap button {
+    margin: 0 20px; padding:10px 40px; cursor:pointer;
+    position:relative; overflow:hidden; transition:.5s ease;
+    font-size:18px; font-weight:600;
+    font-family:"Raleway", sans-serif;
+}
+
+.button-wrap button:before {
+    width:100%; height:100%; content:""; background:#fff;
+    position:absolute; top:0; left:0; z-index:0;
+    transform:translateX(-100%); transition:.5s ease;
+}
+.button-wrap button span {position:relative;}
+.button-wrap button:hover:before {transform:translateX(0);}
+.button-wrap button.run {background:linear-gradient(to right, #27EF3B, #0091F1);}
+.button-wrap button.run:before {background:linear-gradient(to left, #F100B9, #F12100);}
+.button-wrap button.hide {background:linear-gradient(to right, #F100B9, #F12100);}
+.button-wrap button.hide:before {background:linear-gradient(to left, #27EF3B, #0091F1);}
