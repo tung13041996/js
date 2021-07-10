@@ -1,103 +1,118 @@
-$(document).ready(function() {
-    function preloaderAnimation(options) {
+$(document).ready(function () {
+
+    //function show animation of the line
+    function loadingAnimation(options) {
         //vars
         let setting = $.extend({
-            speed: 3,
-            oddLineColor: "#000",
-            evenLineColor: "#ff0000",
-            pause: true,
-        }, options),
-
-            $wrapper = $(".preloader"),
-            $wrapper_ul = $(".preloader ul"),
-            $line_odd = $(".preloader ul li:nth-child(odd)"),
-            $line_even = $(".preloader ul li:nth-child(even)"),
-            total_line = $(".preloader ul li").length,
-            time_delay = 500,
-            totalTime = setting.speed * 1000 + time_delay, //total time + speed of transition to move
-            time_each_stage = totalTime / 3, //total time for each stage line move
-            time_each_odd_line = (2*time_each_stage - 1)/($line_odd.length*($line_odd.length - 1)), //time waiting for each odd line move
-            time_each_even_line = (2*time_each_stage - 1)/($line_even.length*($line_even.length - 1)); //time waiting for each even line move
-
-
-        $line_odd.css("background",setting.oddLineColor);
-        $line_even.css("background",setting.evenLineColor);
-
-        let moveToMain = function($el,time) {
-            for (let i=$el.length; i>=0; i--) {
-                setTimeout(function() {
-                    $el.eq(i).css("transform", "translateX(0)");
-                }, time*($el.length - i));
-            }
-        }
-
-        let moveToRight = function($el,time) {
-            for (let i=$el.length; i>=0; i--) {
-                setTimeout(function() {
-                    $el.eq(i).css("transform", "translateX(100%)");
-                }, time*($el.length - i));
-            }
-        }
-
-        if (setting.pause) {
-            //move odd line from left to main screen
-            moveToMain($line_odd,time_each_odd_line);
-
-            //after 500ms(time delay), line even move to main
-            setTimeout(function() {
-                moveToMain($line_even, time_each_even_line);
-            }, time_delay);
-
-            //do 2 action in the same time
-            //background from blue to black after odd line move to main screen and even line move to main screen
-            //move even line from main screen to right
-            //total time is: 2*time_each_stage - 2*time_delay
-            setTimeout(function() {
-                $wrapper_ul.css("background", setting.oddLineColor);
-                moveToRight($line_even, time_each_even_line);
-            }, 2*time_each_stage - 2*time_delay);
-
-
-            //show main content page
-            //total time: speed - transition - time delay
-            setTimeout(function() {
-                $wrapper.css("opacity","0");
-            }, totalTime - 1000 - time_delay);
-        } else {
-            $wrapper.css("opacity","0");
-        }
-    }
-
-    let $btn_wrap = $(".button-area"),
-        $button_run = $(".button-wrap button.run"),
-        $button_hide = $(".button-wrap button.hide");
-
-    $button_run.on("click", function() {
-        $btn_wrap.css({
-            "opacity":"0",
-            "pointer-even":"none",
-        })
-
-        setTimeout(function() {
-            preloaderAnimation({
                 speed: 3,
                 oddLineColor: "#000",
-                evenLineColor: "#ff0000"
-            });
-        },1000)
-    });
+                evenLineColor: "#f00",
+            }, options),
 
-    $button_hide.on("click", function() {
-        $btn_wrap.css({
-            "opacity":"0",
-            "pointer-even":"none",
+            $wrapper = $(".loading"),
+            $wrapper_ul = $(".animation-screen ul"),
+            $line_odd = $(".animation-screen ul li:nth-child(odd)"),
+            $line_even = $(".animation-screen ul li:nth-child(even)"),
+            time_delay = 500,
+            time_each_stage = (setting.speed * 1000 - time_delay - 1000) / 2; //total time for each stage line move
+
+        //hide shape round loading
+        $(".preloader-screen").css({
+            "opacity": "0",
+            "pointer-events": "none"
         })
 
-        setTimeout(function() {
-            preloaderAnimation({
-                pause:false
-            });
-        },1000)
-    })
+        //add background color for line
+        $line_odd.css("background", setting.oddLineColor);
+        $line_even.css("background", setting.evenLineColor);
 
+        //move line:
+        //"in": move to screen
+        //"out": mouse out from screen
+        let moveLineTo = function (position, $el, time) {
+            let time_wait_each_line = (2 * time - 1000) / ($el.length * ($el.length - 1));
+            for (let i = ($el.length - 1); i >= 0; i--) {
+                setTimeout(function () {
+                    //line move to screen
+                    if (position === "in") {
+                        $el.eq(i).css("transform", "translateX(0)");
+                    }
+                    //line move out screen
+                    else {
+                        $el.eq(i).css("transform", "translateX(100%)");
+                    }
+                }, time_wait_each_line * ($el.length - 1 - i));
+            }
+        }
+
+        //move odd line from left to main screen
+        moveLineTo("in", $line_odd, time_each_stage);
+
+        //after 500ms(time delay), line even move to main
+        setTimeout(function () {
+            moveLineTo("in", $line_even, time_each_stage);
+        }, time_delay)
+
+        //do 2 action in the same time
+        //background from blue to black after odd line move to main screen and even line move to main screen
+        //move even line from main screen to right
+        //total waiting time:  time_each_stage + time_delay
+        setTimeout(function () {
+            $wrapper_ul.css("background", setting.oddLineColor);
+            moveLineTo("out", $line_even, time_each_stage);
+        }, (time_each_stage + time_delay));
+
+        //show main content page
+        //total waiting time: 2*time_each_stage + 500
+        setTimeout(function () {
+            $wrapper.css({
+                "opacity": "0",
+                "pointer-events": "none"
+            });
+        }, (2 * time_each_stage + 500));
+    }
+
+
+    function runAnimation() {
+        //hide first screen has button
+        $(".button-area").css({
+            "opacity": "0",
+            "pointer-events": "none"
+        });
+    }
+
+    function hideAnimation() {
+        //choose option for line to show animation
+        loadingAnimation({
+            speed: 5,
+            oddLineColor: "#000",
+            evenLineColor: "#f00",
+            pause: true,
+        });
+    }
+
+    //function to control animation by button
+    let controlAnimationByButton = function () {
+        let $button_run = $("button.run"),
+            $button_hide = $("button.hide");
+        $button_run.on("click", function () {
+            runAnimation();
+        });
+
+        $button_hide.on("click", function () {
+            hideAnimation();
+        });
+    }
+
+    //function to control animation by loading
+    let controlAnimationByLoading = function () {
+        runAnimation();
+        $(window).on("load", function () {
+            hideAnimation();
+        });
+    }
+
+    //init function
+    // controlAnimationByButton();
+    controlAnimationByLoading();
 })
