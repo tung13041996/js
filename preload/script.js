@@ -43,6 +43,10 @@ $(document).ready(function () {
                     return (2 * index + 1) * settings.lineStagger;
                 }
             },
+            {
+                each:0,
+                amount:0
+            },
             0
         );
 
@@ -57,7 +61,11 @@ $(document).ready(function () {
                     return (2 * index + 1) * settings.lineStagger;
                 }
             },
-            .2
+            {
+                each:0,
+                amount:0
+            },
+            settings.lineDuration,
         );
 
         // set background for wrapper like background color of even line
@@ -83,25 +91,15 @@ $(document).ready(function () {
 
         methods.hide = function () {
             timeline.play();
-            $(".loading-animation-screen").css({
-                "opacity": "0",
-                "visibility": "hidden"
-            });
-            $(".line-animation").css({
-                "opacity": "1",
-                "visibility": "visible"
-            });
+            timeline.to($(".loading-animation-screen"), {autoAlpha:0, duration:0});
+            timeline.to($(".line-animation"), {autoAlpha:1, duration:0});
+            console.log("hide");
         };
         methods.show = function () {
+            timeline.to($(".line-animation"), {autoAlpha:0, duration:0});
+            timeline.to($(".loading-animation-screen"), {autoAlpha:1, duration:0});
             timeline.pause('oddShow');
-            $(".loading-animation-screen").css({
-                "opacity": "1",
-                "visibility": "visible"
-            });
-            $(".line-animation").css({
-                "opacity": "0",
-                "visibility": "hidden"
-            });
+            console.log("show");
         };
 
         return methods;
@@ -112,10 +110,10 @@ $(document).ready(function () {
      */
     let animation = loadingAnimation({
         wrapper: $('.line-animation-wrapper'),
-        total: 20,
+        total: 30,
         oddBg: 'green',
         evenBg: 'skyblue',
-        lineStagger: .04,
+        lineStagger: .02,
         lineDuration: .4
     }), isHide = false;
 
