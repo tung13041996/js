@@ -1,197 +1,154 @@
 $(document).ready(function() {
-    let $sliderItems = $(".twc-home-banner .twc-home-banner__slider-item"),
-        item_length = $sliderItems.length,
-        $dots = $(".twc-home-banner__dots"),
-        $buttonNext = $(".twc-home-banner__arrow-next"),
-        $buttonPrev = $(".twc-home-banner__arrow-prev"),
-        $ball_li = $(".twc-home-banner__dots .ball"),
-        time_move = 1,
-        spacing_dot = 26, //(size dot + 2*margin)
-        currentIndex = 0;
+    let $buttonNext = $(".twc-home-banner__arrow-next"),
+        $buttonPrev = $(".twc-home-banner__arrow-prev");
 
-    //set default position for slide (left screen)
-    function positionDefaultSlide($ele) {
-        gsap.to($ele, {
-            x: -1 * $(window).width(),
+    $buttonPrev.addClass("disable");
+
+    function plugin(options) {
+        let settings = $.extend({
+                wrapper:'',
+                speed: 700,
+                defaultIndex:0
+            }, options),
+            method = {};
+
+        // if wrapper doesn't exist
+        if (!settings.wrapper.length) return;
+
+        let $sliderItems = settings.wrapper.find('.twc-home-banner__slider-item'),
+            item_length = $sliderItems.length,
+            $dots = settings.wrapper.find(".twc-home-banner__dots"),
+            $ball = settings.wrapper.find(".ball");
+
+
+
+        //add dots
+        $("<ul></ul>").appendTo($dots);
+        for (let i = 0; i < $sliderItems.length; i++) {
+            $("<li></li>").appendTo($dots.find("ul"));
+        }
+
+        let $dots_li = settings.wrapper.find(".twc-home-banner__dots ul li"),
+            spacing_dot = 26;
+
+        gsap.to($dots_li.eq(settings.defaultIndex), {
+            autoAlpha: 0,
             duration:0,
         });
-    }
 
-    //set status of button
-    function statusOfBtn() {
-        if (currentIndex===0) {
-            $buttonPrev.addClass("disable");
-            $buttonNext.removeClass("disable");
-        } else if (currentIndex === item_length - 1) {
-            $buttonPrev.removeClass("disable");
-            $buttonNext.addClass("disable");
-        } else {
-            $buttonPrev.removeClass("disable");
-            $buttonNext.removeClass("disable");
+        function moveTo(isNext, index) {
+            index = Math.max(0, Math.min(item_length - 1, index));
+
+            //update status of button: disable or not
+            if (index === 0) {
+                $buttonPrev.addClass("disable");
+                $buttonNext.removeClass("disable");
+            } else if (index === item_length - 1) {
+                $buttonPrev.removeClass("disable");
+                $buttonNext.addClass("disable");
+            } else {
+                $buttonPrev.removeClass("disable");
+                $buttonNext.removeClass("disable");
+            }
+
+            let last_index = isNext ? index - 1 : index + 1;
+
+            // skip if move to duplicated slides
+            if (settings.defaultIndex === index) return;
+
+
+            //update current index
+            settings.defaultIndex = index;
+
+            // get slides
+            let $lastSlide = $sliderItems.eq(last_index),
+                $newSlide = $sliderItems.eq(index);
+
+            // update position for the new slide
+            gsap.fromTo($newSlide,
+                {
+                    x: isNext ? '-100%' : '100%',
+                },
+                {
+                    x: 0,
+                    duration: settings.speed/1000,
+                }
+            );
+
+            // update z index
+            gsap.set($sliderItems, {zIndex: 1});
+            gsap.set($lastSlide, {zIndex: 2});
+            gsap.set($newSlide, {zIndex: 3});
+
+
+            //dot animation
+            //==> not working with GSAP
+            //ball move
+            // gsap.to($ball, {
+            //     x: index*spacing_dot,
+            //     rotate: `${index*90}deg`,
+            //     duration: time_move,
+            // });
+            // gsap.to($dots_li.eq(index), {
+            //     x: isNext ? -1*spacing_dot : spacing_dot,
+            //     duration: time_move,
+            // });
+            // setTimeout(function() {
+            //     gsap.to($dots_li.eq(index), {
+            //         autoAlpha:0,
+            //         duration:0,
+            //     });
+            //     $dots_li.eq(index).css("transform","translate(0,0) !important");
+            //     gsap.to($dots_li.eq(last_index), {
+            //         autoAlpha: 1,
+            //         duration: 0,
+            //     });
+            // }, time_move*1000);
+
+            //working with CSS
+            $ball.css({
+                "transform":`translate(${index*spacing_dot}px,-50%) rotate(${index*90}deg)`,
+                "transition":"all 1s ease",
+            });
+            $dots_li.eq(index).css({
+                "transform":`translateX(${isNext ? -1*spacing_dot : spacing_dot}px)`,
+                "transition":"all 1s ease",
+            })
+
+            setTimeout(function() {
+                $dots_li.eq(index).css({
+                    "opacity":"0",
+                    "transform":"translateX(0)",
+                    "transition":"all 0s ease",
+                });
+                $dots_li.eq(last_index).css({
+                    "opacity":"1",
+                    "visibility":"visible",
+                    "transition":"all 0s ease",
+                });
+            }, settings.speed);
         }
-    }
 
-    //add dots
-    $("<ul></ul>").appendTo($dots);
-    for (let i = 0; i < $sliderItems.length; i++) {
-        $("<li></li>").appendTo($dots.find("ul"));
-    }
-
-    let $dots_li = $(".twc-home-banner__dots ul li");
-
-    function defaultDot() {
-        gsap.to($ball_li, {
-            x: currentIndex * spacing_dot,
-            duration: 0,
-        });
-        gsap.to($dots_li.eq(currentIndex), {
-            autoAlpha:0,
-            duration:0,
-        });
-    }
-
-
-    //default screen
-    $sliderItems.eq(currentIndex).addClass("current");
-    statusOfBtn();
-    $sliderItems.each(function() {
-        let $this = $(this);
-        if (!$this.hasClass("current")) {
-            positionDefaultSlide($this);
+        method.next = function() {
+            moveTo(true, settings.defaultIndex + 1);
         }
+        method.prev = function() {
+            moveTo(false, settings.defaultIndex - 1);
+        }
+
+        return method;
+    }
+
+    let result = plugin({
+        wrapper:$('.twc-home-banner'),
+        speed: 1000,
+        defaultIndex:0,
     });
-    defaultDot();
 
-
-
-
-    //function to move to previous slide
-    function slideToPrev() {
-        let $slideCurrent = $sliderItems.eq(currentIndex),
-            $slidePrev = $sliderItems.eq(currentIndex - 1);
-
-
-        if (currentIndex > 0) {
-
-            /*SLIDER*/
-            //slide previous move to right screen
-            gsap.to($slidePrev,{
-                x: $(window).width(),
-                duration:0
-            });
-
-            //set previous slider is current slider (z-index bigger)
-            $slideCurrent.removeClass("current-slide");
-            $slidePrev.addClass("current-slide");
-
-            //move slide previous to main screen
-            gsap.to($slidePrev,{
-                x: 0,
-                duration:time_move,
-            });
-
-            //set current slide to default position after slide previous to main screen (1s)
-            setTimeout(function() {
-                positionDefaultSlide($slideCurrent);
-            }, time_move*1000);
-
-            /*DOTS*/
-            defaultDot();
-            gsap.to($ball_li, {
-                x: spacing_dot * (currentIndex - 1),
-                duration:time_move,
-            });
-            gsap.to($dots_li.eq(currentIndex+1), {
-                x: spacing_dot,
-                duration: time_move,
-            });
-            setTimeout(function() {
-                gsap.to($dots_li.eq(currentIndex), {
-                    autoAlpha: 1,
-                    duration:0,
-                });
-                gsap.to($dots_li.eq(currentIndex+1), {
-                    autoAlpha:0,
-                    x: 0,
-                    duration: 0,
-                });
-            }, time_move*1000)
-
-            //update current slide
-            currentIndex -= 1;
-
-
-        }
-        statusOfBtn();
-    }
-
-    //function to move to next slide
-    function slideToNext() {
-        let $slideCurrent = $sliderItems.eq(currentIndex),
-            $slideNext = $sliderItems.eq(currentIndex + 1);
-
-        if (currentIndex < item_length - 1) {
-
-            /*SLIDER*/
-            //set next slider is current slider (z-index bigger)
-            $slideCurrent.removeClass("current-slide");
-            $slideNext.addClass("current-slide");
-
-            //move next slide to main screen
-            gsap.to($slideNext,{
-                x: 0,
-                duration:1
-            })
-
-            //move current slide to default position after next slide move to main screen (1s)
-            setTimeout(function() {
-                positionDefaultSlide($slideCurrent);
-            }, time_move*1000);
-
-            /*DOTS*/
-            defaultDot();
-            gsap.to($ball_li, {
-                x: spacing_dot * (currentIndex + 1),
-                duration:time_move,
-            })
-            gsap.to($dots_li.eq(currentIndex+1), {
-                x: -1 * spacing_dot,
-                duration: time_move,
-            })
-
-            setTimeout(function() {
-                gsap.to($dots_li.eq(currentIndex), {
-                    autoAlpha: 1,
-                    duration:0,
-                });
-                gsap.to($dots_li.eq(currentIndex+1), {
-                    autoAlpha:0,
-                    x: 0,
-                    duration: 0,
-                });
-            }, time_move*1000)
-
-
-            //update current slide
-            currentIndex += 1;
-        }
-        statusOfBtn();
-    }
-
-
-
-
-
-
-    //slide when click next button
     $buttonNext.on("click", function() {
-        slideToNext();
-    })
-
+        result.next();
+    });
     $buttonPrev.on("click", function() {
-        slideToPrev();
-    })
-
-
-
+        result.prev();
+    });
 })
