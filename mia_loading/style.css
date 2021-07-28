@@ -1,0 +1,54 @@
+* {
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+.body {
+    /*font-size: "Schnyder S", san-serif;*/
+    font-size:18px;
+}
+/*.container {*/
+/*    max-width:1240px;*/
+/*    padding:0 40px;*/
+/*    margin:auto;*/
+/*}*/
+img {
+    width:100%;
+    height:auto;
+}
+
+/*loading*/
+.loading {
+    width:100%;
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    overflow:hidden;
+}
+.loading-wrapper {height:100%; background:#fff;}
+.loading .percent {transition:all .1s linear;}
+.layout {
+    width:100%;
+    height:100%;
+    position:absolute;
+    top:0;
+    left:0;
+}
+.layout-dark {
+    background:#303D3A;
+    z-index:2;
+}
+.text {
+    position:absolute;
+    left:20px;
+    bottom:40px;
+    z-index:3;
+    font-weight: 300;
+    font-size: 210px;
+    line-height:1.5;
+    letter-spacing: -0.04em;
+}
+.text-black .percent {
+    font-size:220px;
+}
