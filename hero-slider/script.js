@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     let $buttonNext = $(".twc-home-banner__arrow-next"),
         $buttonPrev = $(".twc-home-banner__arrow-prev");
 
@@ -6,9 +6,9 @@ $(document).ready(function() {
 
     function plugin(options) {
         let settings = $.extend({
-                wrapper:'',
+                wrapper: '',
                 speed: 700,
-                defaultIndex:0
+                defaultIndex: 0
             }, options),
             method = {};
 
@@ -19,7 +19,6 @@ $(document).ready(function() {
             item_length = $sliderItems.length,
             $dots = settings.wrapper.find(".twc-home-banner__dots"),
             $ball = settings.wrapper.find(".ball");
-
 
 
         //add dots
@@ -33,7 +32,7 @@ $(document).ready(function() {
 
         gsap.to($dots_li.eq(settings.defaultIndex), {
             autoAlpha: 0,
-            duration:0,
+            duration: 0,
         });
 
         function moveTo(isNext, index) {
@@ -71,7 +70,7 @@ $(document).ready(function() {
                 },
                 {
                     x: 0,
-                    duration: settings.speed/1000,
+                    duration: settings.speed / 1000,
                 }
             );
 
@@ -82,57 +81,33 @@ $(document).ready(function() {
 
 
             //dot animation
-            //==> not working with GSAP
-            //ball move
-            // gsap.to($ball, {
-            //     x: index*spacing_dot,
-            //     rotate: `${index*90}deg`,
-            //     duration: time_move,
-            // });
-            // gsap.to($dots_li.eq(index), {
-            //     x: isNext ? -1*spacing_dot : spacing_dot,
-            //     duration: time_move,
-            // });
-            // setTimeout(function() {
-            //     gsap.to($dots_li.eq(index), {
-            //         autoAlpha:0,
-            //         duration:0,
-            //     });
-            //     $dots_li.eq(index).css("transform","translate(0,0) !important");
-            //     gsap.to($dots_li.eq(last_index), {
-            //         autoAlpha: 1,
-            //         duration: 0,
-            //     });
-            // }, time_move*1000);
-
-            //working with CSS
-            $ball.css({
-                "transform":`translate(${index*spacing_dot}px,-50%) rotate(${index*90}deg)`,
-                "transition":"all 1s ease",
+            // ball move
+            gsap.to($ball, {
+                x: index * spacing_dot + "px",
+                rotate: `${index * 90}deg`,
+                duration: settings.speed / 1000,
             });
-            $dots_li.eq(index).css({
-                "transform":`translateX(${isNext ? -1*spacing_dot : spacing_dot}px)`,
-                "transition":"all 1s ease",
-            })
-
-            setTimeout(function() {
-                $dots_li.eq(index).css({
-                    "opacity":"0",
-                    "transform":"translateX(0)",
-                    "transition":"all 0s ease",
+            gsap.to($dots_li.eq(index), {
+                x: isNext ? -1 * spacing_dot : spacing_dot + "px",
+                duration: settings.speed / 1000,
+            });
+            setTimeout(function () {
+                gsap.to($dots_li.eq(index), {
+                    autoAlpha: 0,
+                    duration: 0,
                 });
-                $dots_li.eq(last_index).css({
-                    "opacity":"1",
-                    "visibility":"visible",
-                    "transition":"all 0s ease",
+                gsap.to($dots_li.eq(last_index), {
+                    autoAlpha: 1,
+                    x: 0,
+                    duration: 0,
                 });
             }, settings.speed);
         }
 
-        method.next = function() {
+        method.next = function () {
             moveTo(true, settings.defaultIndex + 1);
         }
-        method.prev = function() {
+        method.prev = function () {
             moveTo(false, settings.defaultIndex - 1);
         }
 
@@ -140,15 +115,15 @@ $(document).ready(function() {
     }
 
     let result = plugin({
-        wrapper:$('.twc-home-banner'),
+        wrapper: $('.twc-home-banner'),
         speed: 1000,
-        defaultIndex:0,
+        defaultIndex: 0,
     });
 
-    $buttonNext.on("click", function() {
+    $buttonNext.on("click", function () {
         result.next();
     });
-    $buttonPrev.on("click", function() {
+    $buttonPrev.on("click", function () {
         result.prev();
     });
 })
