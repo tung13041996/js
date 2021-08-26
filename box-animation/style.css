@@ -9,9 +9,9 @@ ul li {padding:0;}
 
 /*animation*/
 .box-animation {width:100%;}
-.box-animation ul {border:1px solid rgba(112,112,112,.3); border-top:none; position:relative;}
+.box-animation ul {border:1px solid rgba(112, 112, 112, .3); border-top:none; position:relative;}
 .box-animation ul li {position:relative; z-index:1; transition:all .3s ease;}
-.box-animation ul li {border-top:1px solid rgba(112,112,112,.3);}
+.box-animation ul li {border-top:1px solid rgba(112, 112, 112, .3);}
 .box-animation a {display:block; padding:15px 20px;color:#1d1b1b;}
 
 /*not animation*/
